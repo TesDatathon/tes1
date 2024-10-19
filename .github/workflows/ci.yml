@@ -1,28 +1,20 @@
-name: CI Pipeline
+name: Monitor Student Progress
 
+# Jalankan workflow setiap kali ada push ke branch manapun
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - '*'  # Memantau semua branch
 
 jobs:
-  build:
+  track_progress:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'  # Ubah versi python yang valid
-
-      - name: Skip installing dependencies (no requirements.txt needed)
-        run: echo "No dependencies"
-
-      - name: Run tests
+      - name: Notify commit
         run: |
-          pytest  # Atau framework testing lain yang digunakan
+          echo "Commit detected on branch: ${{ github.ref }}"
+          echo "Commit made by: ${{ github.actor }}"
+          echo "Commit message: ${{ github.event.head_commit.message }}"
