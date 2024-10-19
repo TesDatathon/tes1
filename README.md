@@ -1,1 +1,1 @@
-![CI](https://github.com/TesDatathon/tes1/workflows/CI/badge.svg)
+!(https://github.com/TesDatathon/tes1/workflows/CI/badge.svg)
