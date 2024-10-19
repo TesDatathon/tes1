@@ -1,10 +1,9 @@
 name: Monitor Student Progress
 
-# Jalankan workflow setiap kali ada push ke branch manapun
 on:
   push:
     branches:
-      - '*'  # Memantau semua branch
+      - '*'
 
 jobs:
   track_progress:
